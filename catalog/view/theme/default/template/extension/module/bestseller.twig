@@ -1,0 +1,56 @@
+<section class="cares separation">
+  <div class="container new-font">
+    <div class="row justify-content-around flex-xs-row-reverse">
+      <div class="col-12">
+        <h2 style="text-align: center; margin-bottom: 20px">Best Selling</h2>
+        <br />
+        <div class="swiper topSwiper">
+          <div class="swiper-wrapper">
+            {% for product in products %}
+            <div class="swiper-slide">
+              <div class="product-card">
+                <div class="image">
+                  <a onclick="" href="{{ product.href }}">
+                    <img onclick="" style="z-index: 99999999" src="{{ product.thumb }}"
+                      alt="{{ product.name }}" title="{{ product.name }}"
+                      class="img-responsive pthumb" />
+                  </a>
+                </div>
+                <a onclick="" href="{{ product.thumb }}">
+                  <h6 class="product_name" style="color: black">
+                    {{ product.name }}
+                  </h6>
+                </a>
+                {% if product.price %}
+                <p class="price">
+                  {% if not product.special %}
+                {{ product.price }}
+                {% else %}
+
+                  <span style="white-space: nowrap" class="price-new">
+                    {{ product.special }}
+                  </span>
+                  <span style="white-space: nowrap" class="price-old">
+                    {{ product.price }
+                  </span>
+                  {% endif %}
+                  {% if product.tax %}
+                  <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

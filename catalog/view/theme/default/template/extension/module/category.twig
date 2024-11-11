@@ -1,0 +1,22 @@
+ <div class="banner-statistics-area">
+  <div class="container">
+    <div class="row row-20 mtn-20">
+      {% for category in categories %}
+      <div class="col-sm-6">
+        <figure class="banner-statistics mt-20">
+          <a href="{{ category.href }}">
+            <img src="assets/img/banner/img1-top.jpg" alt="product banner">
+          </a>
+          <div class="banner-content text-right ">
+            <h5 class="banner-text1 ">{{ category.name }}</h5>
+
+            <a href="{{ category.href }}" class="btn btn-text">Shop Now</a>
+          </div>
+        </figure>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div> 
+
+

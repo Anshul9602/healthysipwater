@@ -1,0 +1,82 @@
+  <!-- offcanvas mini cart start -->
+  <div class="offcanvas-minicart-wrapper">
+    <div class="minicart-inner">
+      <div class="offcanvas-overlay"></div>
+      <div class="minicart-inner-content">
+        <div class="minicart-close">
+          <i class="pe-7s-close"></i>
+
+        </div>
+
+
+        <div class="minicart-content-box">
+          <div class="minicart-item-wrapper" id="cart">
+            {% if product in products %}
+              <ul>
+
+                {% for product in products %}
+                {% if product.thumb %}
+                  <li class="minicart-item">
+                    <div class="minicart-thumb">
+                      <a href="{{ product.href }}">
+                        <img src="{{ product.thumb }}" alt="product">
+                      </a>
+                    </div>
+                    <div class="minicart-content">
+                      <h3 class="product-name">
+                        <a href="{{ product.href }}">{{ product.name }}</a>
+                      </h3>
+                      {% if product.option %}
+                      {% for option in product.option %}
+                          <br />
+                          - <small> {{ option.name }}: {{ option.value }}</small>
+                          {% endfor %}
+                          {% endif %}
+                      <p>
+                        <span class="cart-quantity">{{ product.quantity }} <strong>&times;</strong></span>
+                        <span class="cart-price"> {{ product.total }}</span>
+                      </p>
+                    </div>
+                    <button onclick="cart.remove('{{ product.cart_id }}');" class="minicart-remove"><i class="pe-7s-close"></i></button>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                 
+              </ul>
+               {% endif %}
+          </div>
+
+          <div style="position: absolute; width:80%; bottom:0px; border:none" class="minicart-pricing-box">
+            <ul> {% for total in totals %}
+              <li class="total">
+                <span> {{ total.title }}:</span>
+                <span><strong> {{ total.text }}</strong></span>
+              </li>
+              {% endfor %}
+            </ul>
+            <hr />
+            <div class="minicart-button">
+              <a href="{{ checkout }}"><i class="fa fa-shopping-cart"></i> View Cart & Checkout</a>
+            </div>
+          </div>
+        </div>
+   
+        <ul>
+          <li>Cart Is Empty</li>
+        </ul>
+      </div>
+      <div style="position: absolute; width:80%; bottom:120px" class="minicart-pricing-box">
+        <ul>
+
+        </ul>
+      </div>
+      <div style="display: none;" class="minicart-button">
+        <div class="minicart-button">
+          <a href="{{ checkout }}"><i class="fa fa-shopping-cart"></i> View Cart & Checkout</a>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  </div>
+  <!-- offcanvas mini cart end -->

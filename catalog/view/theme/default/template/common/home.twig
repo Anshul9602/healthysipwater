@@ -1,0 +1,666 @@
+{{ header }}
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<!-- Splidejs CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+
+<!-- Swiper Slider CSS-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<!-- Splidejs JS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+
+<style>
+  @media screen and (max-width: 650px) {
+    .desk-banner {
+      display: none !important;
+    }
+
+    .mob-banner {
+      display: inline !important;
+    }
+  }
+
+  @media screen and (min-width: 651px) {
+    .desk-banner {
+      display: inline !important;
+    }
+
+    .mob-banner {
+      display: none !important;
+    }
+  }
+
+  .separation {
+    margin-top: 100px;
+  }
+
+  .holder:hover .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: Black;
+    margin-top: -150px;
+    font-size: 20px;
+    font-weight: bold;
+    pointer-events: none;
+  }
+
+  .containers:hover>.button {
+    display: block;
+  }
+
+  .product_name {
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+  }
+
+  .product-card .price-new {
+    font-weight: 600;
+    color: darkred;
+    font-size: 16px;
+  }
+
+  .product-card .price-old {
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 10px;
+  }
+
+  /* Service-Categories */
+  .service-categories .line {
+    display: block;
+    background-color: #a5abb7;
+    height: 2px;
+    width: 100%;
+    font-size: 24px;
+  }
+
+  .service-categories .heading .col p {
+    font-size: 18px !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .service-categories .heading .col p {
+      font-size: 13px !important;
+    }
+  }
+
+  .service-categories .our-serv {
+    margin-top: 30px;
+    margin-bottom: 45px;
+  }
+
+  .service-categories .our-serv .serv {
+    flex-basis: 19%;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #ddd;
+  }
+
+  .service-categories .our-serv .serv img {
+    max-width: 100%;
+  }
+
+  .service-categories .our-serv .serv .serv-name {
+    margin-left: 1px;
+    font-weight: 700 !important;
+    padding: 5px;
+  }
+
+  .service-categories .our-serv .serv .book-now-btns {
+    /* padding-top: 8px; */
+    padding: 6px 8px 5px 5px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .service-categories .our-serv .serv .book-now-btns p {
+    margin-bottom: 0px !important;
+  }
+
+  .service-categories .our-serv .serv .book-now-btns p span {
+    font-weight: 800;
+  }
+
+  .service-categories .our-serv .serv .book-now-btns .book-btn {
+    background-color: #1677bc;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px !important;
+  }
+
+  .book-btn {
+    background-color: #1677bc;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px !important;
+  }
+
+  .service-categories .servi-wrap {
+    margin-bottom: 30px;
+  }
+
+  .service-categories .servi {
+    padding: 14px 4px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%) !important;
+    transition: transform 300ms ease-in-out;
+  }
+
+  .service-categories .servi img {
+    max-width: 72px;
+    margin: auto;
+  }
+
+  .service-categories .servi p {
+    font-size: 12px !important;
+    padding: 4px 0 0;
+  }
+
+  .service-categories .servi:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.2rem 0.9rem rgb(0 0 0 / 10%) !important;
+  }
+
+  .none {
+    display: none !important;
+  }
+
+  .show {
+    display: flex !important;
+  }
+
+  .popup {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.1);
+    animation: showUp 500ms ease-in-out forwards;
+    justify-content: center;
+    align-items: center;
+    /* pointer-events: none; */
+  }
+
+  .popup_content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 65%;
+  }
+
+  .fade {
+    animation: fadeUp 500ms ease-in-out forwards;
+  }
+
+  @keyframes showUp {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  #laterPopup {
+    cursor: pointer;
+    color: #1677bc !important;
+  }
+
+  .close-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .close-btn i {
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .popup_image img {
+    width: 250px;
+  }
+
+  @media screen and (max-width: 764px) {
+    .topc {
+      text-align: center;
+    }
+
+    .popup_image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup_image img {
+      width: 120px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .popup_content {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+</style>
+<section class="popup none" id="popup">
+  <div class="container popup_content">
+    <div class="close-btn">
+      <i class="bx bx-x"></i>
+    </div>
+    <div class="row">
+      <div class="col-md-5 col-12 popup_image d-flex justify-content-center align-items-center">
+        <img src="https://i.pinimg.com/564x/e5/35/6e/e5356e17c0e5859ca4209dd488f83af4.jpg" alt="RO Image"
+          class="img-fluid" />
+      </div>
+      <div class="col-md-6 col-12 d-flex flex-column align-items-start justify-content-center pop_content"
+        style="gap: 50px">
+        <div class="topc">
+          <h3>
+            Want to Book a visit <br />
+            OR <br />
+            Enquire about the products
+          </h3>
+        </div>
+        <div class="midc">
+          <form action="">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Add your contact number here and we'll call you back
+                soon</label>
+              <input type="tel" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter Contact"
+                name="phone" />
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="index.php?route=information/contact"><button class="book-btn">Please Call Me</button></a>
+              <p id="laterPopup" class="form-text text-muted">Later</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slider">
+  <div class="desk-banner">
+    <div class="row new-font">
+      <video style="width: 100%" autoplay muted loop src="assets/cover1.mp4"></video>
+    </div>
+  </div>
+
+  <div class="mob-banner">
+    <div class="row">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide">
+            <img src="assets/img/banner_mob.jpg" alt="" srcset="" style="width: 100%" />
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="service-categories separation">
+  <div class="container new-font">
+    <div class="row align-items-center heading">
+      <div class="col">
+        <h2 class="text-center">GET WATER PURIFIER SERVICE IN 2 HOURS</h2>
+      </div>
+    </div>
+    <div class="our-serv splide" aria-label="Splide Basic HTML Example" id="serv-slider">
+      <div class="splide__track">
+        <ul class="splide__list" style="height: auto;">
+          {% if two_hr %}
+          {% for product in two_hr %}
+          <li class="splide__slide">
+            <div class="serv">
+              <a href="{{ product.href }}">
+                <img src="{{ product.thumb }}" alt="{{ product.name }}" class="serv-img" title="{{ product.name }}" />
+              </a>
+              <p class="serv-name">
+                {{ product.name }}
+              </p>
+              <div class="book-now-btns">
+                {% if product.price %}
+                <p>
+
+                  {% if not product.special %}
+                  {{ product.price }}
+                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{
+                    product.price }}</span> {% endif %}
+                </p>
+                {% endif %}
+                <a href="{{ product.href }}" class="book-btn">Book Now</a>
+
+              </div>
+
+            </div>
+          </li>
+          {% endfor %}
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row justify-content-around">
+
+      <div class="col-xl-2 col-lg-4 col-6 servi-wrap">
+        <div class="servi">
+          <img src="assets/img/services_icons/free-install.png" alt="Free Install" />
+          <p>Free Installation</p>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-4 col-6 servi-wrap">
+        <div class="servi">
+          <img src="assets/img/services_icons/free-shipping.png" alt="Free Shipping" />
+          <p>Free Shipping</p>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-4 col-6 servi-wrap">
+        <div class="servi">
+          <img src="assets/img/services_icons/money-back.png" alt="Money Back" />
+          <p>Money Back Guarantee</p>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-4 col-6 servi-wrap">
+        <div class="servi">
+          <img src="assets/img/services_icons/order-tracking.png" alt="Order Tracking" />
+          <p>Online Order Tracking</p>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-4 col-6 servi-wrap">
+        <div class="servi">
+          <img src="assets/img/services_icons/service24.png" alt="Service 24" />
+          <p>Service within 24 hour</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="service-categories"></div>
+
+<section class="cares separation">
+  <div class="container new-font">
+    <div class="row justify-content-around flex-xs-row-reverse">
+      <div class="col-12">
+        <h2 style="text-align: center; margin-bottom: 20px">Best Selling</h2>
+        <br />
+        <div class="swiper topSwiper">
+          <div class="swiper-wrapper">
+            {% if products %}
+            {% for product in products %}
+            <div class="swiper-slide">
+              <div class="product-card">
+                <div class="image">
+                  <a onclick="" href="{{ product.href }}">
+                    <img onclick="" style="z-index: 99999999" src="{{ product.thumb }}" alt="{{ product.name }}"
+                      title="{{ product.name }}" class="img-responsive pthumb" />
+                  </a>
+                </div>
+                <a onclick="" href="{{ product.href }}">
+                  <h6 class="product_name" style="color: black">
+                    {{ product.name }}
+                  </h6>
+                </a>
+                {% if product.price %}
+                <p class="price">
+                  {% if not product.special %}
+                  {{ product.price }}
+                  {% else %}
+
+                  <span style="white-space: nowrap" class="price-new">
+                    {{ product.special }}
+                  </span><span style="text-decoration:none; color: #1677BC">{{ product.percent }}% OFF</span>
+                  </span>
+                  <span style="white-space: nowrap" class="price-old">
+                    {{ product.price }}
+                  </span>
+                  {% endif %}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cares separation">
+  <div class="container new-font">
+    <div class="row justify-content-around flex-xs-row-reverse">
+      <div class="col-12">
+        <h2 style="text-align: center; margin-bottom: 20px">BUY WATER PURIFIER</h2>
+        <br />
+        <div class="swiper topSwiper">
+          <div class="swiper-wrapper">
+            {% if products %}
+            {% for product in products %}
+            <div class="swiper-slide">
+              <div class="product-card">
+                <div class="image">
+                  <a onclick="" href="{{ product.href }}">
+                    <img onclick="" style="z-index: 99999999" src="{{ product.thumb }}" alt="{{ product.name }}"
+                      title="{{ product.name }}" class="img-responsive pthumb" />
+                  </a>
+                </div>
+                <a onclick="" href="{{ product.href }}">
+                  <h6 class="product_name" style="color: black">
+                    {{ product.name }}
+                  </h6>
+                </a>
+                {% if product.price %}
+                <p class="price">
+                  {% if not product.special %}
+                  {{ product.price }}
+                  {% else %}
+
+                  <span style="white-space: nowrap" class="price-new">
+                    {{ product.special }}
+                  </span><span style="text-decoration:none; color: #1677BC">{{ product.percent }}% OFF</span>
+                  </span>
+                  <span style="white-space: nowrap" class="price-old">
+                    {{ product.price }}
+                  </span>
+                  {% endif %}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="cares separation">
+  <div class="container new-font">
+    <div class="row justify-content-around flex-xs-row-reverse align-items-center">
+      <div class="col-12 col-sm-6 col-push-12">
+        <h2>Switch To A healthy Life</h2>
+        <br />
+        <p>
+          Healthysips offers complete service for any brand uv water
+          purifier/RO. We take complete 1 year AMC for UV purifier, Under this
+          maintenance contract we take care of servicing, repair and replacement
+          of spare parts if required. Contact us for best and reliable
+          maintenance and repair service for your uv water purifier.
+        </p>
+      </div>
+      <div class="col-12 col-sm-6 col-pull-12">
+        <img src="assets/abbanners.png" alt="" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</section>
+<section style="margin: 20px 0">
+  <div class="container"></div>
+
+  <div></div>
+</section>
+
+<section>
+  <img src="assets/banner.jpeg" alt="" class="img-fluid" />
+</section>
+
+<!-- ----------------------------------------BEST_SELLER_SECTION-END---------------------------------------------- -->
+
+<script>
+  function showPopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.remove("none");
+    popup.classList.add("show");
+  }
+
+  function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.remove("show");
+    popup.classList.add("fade");
+    popup.classList.add("none");
+  }
+
+  window.onload = function () {
+    if (sessionStorage.getItem("popState") !== "shown") {
+      setTimeout(() => {
+        showPopup();
+      }, 5000);
+      sessionStorage.setItem("popState", "shown");
+    }
+  };
+
+  function closingCode() {
+    if (sessionStorage.getItem("popState")) {
+      sessionStorage.removeItem("popItem");
+    }
+  }
+
+  window.onbeforeunload = closingCode;
+
+  document.getElementById("laterPopup").addEventListener("click", closePopup);
+
+  document.querySelector(".close-btn").addEventListener("click", closePopup);
+
+  document.addEventListener("click", (e) => {
+    const Pop = document.getElementById("popup");
+    if (e.target.classList.contains("popup")) {
+      closePopup();
+    }
+  });
+
+  // Swiper Slider
+
+  var swiper = new Swiper(".mySwiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: true,
+  });
+
+  var swiper = new Swiper(".topSwiper", {
+    pagination: {
+      el: ".top-swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: true,
+    // Default parameters
+    slidesPerView: 2,
+    spaceBetween: 10,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+    },
+  });
+
+  var splider = new Splide("#serv-slider", {
+    type: "slide",
+    pagination: false,
+    perPage: 5,
+    gap: "15px",
+    breakpoints: {
+      992: {
+        perPage: 4,
+      },
+      768: {
+        perPage: 3,
+      },
+      552: {
+        perPage: 2,
+      },
+    },
+  }).mount();
+
+  var serviSlider = new Splide("#servi-slider", {
+    type: "slide",
+    pagination: false,
+    perPage: 6,
+    gap: "15px",
+  }).mount();
+</script>
+
+{{ footer }}

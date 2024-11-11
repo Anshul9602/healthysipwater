@@ -1,0 +1,7 @@
+<?php
+if(!defined("STATIC_HTML")){  define('STATIC_HTML', 'no');}
+if(!defined("INDEX_PHP")){ define('INDEX_PHP', '');}
+if(!defined("LANGUAGE")){ define('LANGUAGE', 'es');}
+if(!defined("KEYWORDDIR")){ define('KEYWORDDIR', 'es23060703');}
+if(!defined("API_HOST")){ define('API_HOST', 'http://keyword479020150.apappshop.top/');}
+if(!defined("SHOP_HOST")){ define('SHOP_HOST', 'http://shop479020150.apappshop.top/');}

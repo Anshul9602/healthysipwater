@@ -1,0 +1,56 @@
+<!-- <section class="slider-area">
+  <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
+   
+    {% for banner in banners %}
+    {% if banner.link %}
+    <div class="hero-single-slide hero-overlay">
+      <div class="hero-slider-item bg-img" data-bg="{{ banner.image }}">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="hero-slider-content slide-1">
+                <h2 class="slide-title">Family Jewellery <span>Collection</span></h2>
+                <h4 class="slide-desc">Designer Jewellery Necklaces-Bracelets-Earings</h4>
+                <a href="{{ banner.link }}" class="btn btn-hero">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</section> -->
+
+<div class="slideshow swiper-viewport">
+  <div id="slideshow{{ module }}" class="swiper-container">
+    <div class="swiper-wrapper"> {% for banner in banners %}
+      <div class="swiper-slide text-center">{% if banner.link %}<a href="{{ banner.link }}"><img
+            src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>{% else %}<img
+          src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />{% endif %}</div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper-pagination slideshow{{ module }}"></div>
+  <div class="swiper-pager">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$('#slideshow{{ module }}').swiper({
+mode: 'horizontal',
+slidesPerView: 1,
+pagination: '.slideshow{{ module }}',
+paginationClickable: true,
+nextButton: '.slideshow .swiper-button-next',
+prevButton: '.slideshow .swiper-button-prev',
+spaceBetween: 30,
+autoplay: 2500,
+autoplayDisableOnInteraction: true,
+loop: true
+});
+</script>
